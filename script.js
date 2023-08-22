@@ -7,28 +7,28 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  let result = '';
-  let winnerOfRound;
+  let playerScore = 0, computerScore = 0;
 
   if (playerSelection === computerSelection) {
-    return 'Try again!';
+    console.log('Try again!');
   } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-    return 'You Lose! Paper beats Rock.';
+    computerScore += 1;
+    console.log('You Lose! Paper beats Rock.');
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    return 'You Win! Paper beats Rock.'
+    playerScore += 1;
+    console.log('You Win! Paper beats Rock.');
   } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
-    return 'You Lose! Rock beats Scissors.';
+    computerScore += 1;
+    console.log('You Lose! Rock beats Scissors.');
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    return 'You Win! Rock beats Scissors.'
+    playerScore += 1;
+    console.log('You Win! Rock beats Scissors.');
   } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
-    return 'You Lose! Scissors beat Paper.';
+    computerScore += 1;
+    console.log('You Lose! Scissors beat Paper.');
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    return 'You Win! Scissors beat Paper.'
+    playerScore += 1;
+    console.log('You Win! Scissors beat Paper.');
   }
 }
 
-function game() {
-  let playerScore = 0, computerScore = 0;
-
-
-}
