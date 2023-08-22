@@ -6,4 +6,4 @@ Minimalistic rock-paper-scissors.
 
 ## Credits
 - [The Odin Project](https://www.theodinproject.com/lessons/foundations-rock-paper-scissors)
-- [Wikipedia](https://en.wikipedia.org/wiki/Rock_paper_scissors)
+- [Wikihow](https://www.wikihow.com/Play-Rock,-Paper,-Scissors)
