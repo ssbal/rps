@@ -7,28 +7,55 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-  let playerScore = 0, computerScore = 0;
+  let winner;
 
   if (playerSelection === computerSelection) {
-    console.log('Try again!');
+    winner = null;
   } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-    computerScore += 1;
     console.log('You Lose! Paper beats Rock.');
+    winner = 'c';
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    playerScore += 1;
     console.log('You Win! Paper beats Rock.');
+    winner = 'p';
   } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
-    computerScore += 1;
     console.log('You Lose! Rock beats Scissors.');
+    winner = 'c';
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    playerScore += 1;
     console.log('You Win! Rock beats Scissors.');
+    winner = 'p';
   } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
-    computerScore += 1;
     console.log('You Lose! Scissors beat Paper.');
+    winner = 'c';
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    playerScore += 1;
     console.log('You Win! Scissors beat Paper.');
+    winner = 'p';
+  }
+
+  return winner;
+}
+
+function game() {
+  let playerScore = 0, computerScore = 0;
+
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt('Make a choice').trim().toLowerCase();
+    let computerSelection = getComputerChoice();
+
+    let result = playRound(playerSelection, computerSelection);
+    if (result === null) continue;
+    else if (result === 'p') playerScore += 1;
+    else if (result === 'c') computerScore += 1;
+  }
+
+  console.log(`Player: ${playerScore} | Computer: ${computerScore}`);
+
+  if (playerScore > computerScore) {
+    console.log('You have won!');
+  } else if (playerScore < computerScore) {
+    console.log('You have lost the game!');
+  } else if (playerScore === computerScore) {
+    console.log('Game is draw!')
   }
 }
 
+game();
