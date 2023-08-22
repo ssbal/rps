@@ -49,12 +49,18 @@ function game() {
 
   console.log(`Player: ${playerScore} | Computer: ${computerScore}`);
 
+  let winner = getWinner(playerScore, computerScore);
+
+  console.log(winner);
+}
+
+function getWinner(playerScore, computerScore) {
   if (playerScore > computerScore) {
-    console.log('You have won!');
+    return 'You have won!';
   } else if (playerScore < computerScore) {
-    console.log('You have lost the game!');
+    return 'You have lost the game!';
   } else if (playerScore === computerScore) {
-    console.log('Game is draw!')
+    return 'Game is draw!';
   }
 }
 
