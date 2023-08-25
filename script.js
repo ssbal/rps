@@ -51,17 +51,19 @@ function playRound(playerSelection, computerSelection) {
 function game(playerChoice) {
   let playerSelection = playerChoice;
   let computerSelection = getComputerChoice();
+  result.classList.remove('winner');
 
-  let result = playRound(playerSelection, computerSelection);
-  if (result === null) return;
-  else if (result === 'p') playerScore += 1;
-  else if (result === 'c') computerScore += 1;
+  let gameResult = playRound(playerSelection, computerSelection);
+  if (gameResult === null) return;
+  else if (gameResult === 'p') playerScore += 1;
+  else if (gameResult === 'c') computerScore += 1;
 
   scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
 
   if (playerScore === 5 || computerScore === 5) {
     getWinner(playerScore, computerScore);
     playerScore = computerScore = 0;
+    result.classList.add('winner');
   }
 }
 
