@@ -61,6 +61,7 @@ function game(playerChoice) {
 
   if (playerScore === 5 || computerScore === 5) {
     getWinner(playerScore, computerScore);
+    playerScore = computerScore = 0;
   }
 }
 
