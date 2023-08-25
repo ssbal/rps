@@ -4,17 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
+
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <h1>Rock Paper Scissors</h1>
-    <div class="actions">
-      <button id="rock">Rock</button>
-      <button id="paper">Paper</button>
-      <button id="scissors">Scissors</button>
-    </div>
+    <div class="container">
+      <h1>Rock-Paper-Scissors</h1>
+      <p class="about">
+        Minimalistic rock-paper-scissors built in JavaScript by
+        <a href="https://github.com/ssbal" target="_blank"
+          >Sukhdeep Singh Bal</a
+        >
+      </p>
 
-    <h2 class="result"></h2>
-    <p class="scores"></p>
+      <div class="actions">
+        <button id="rock">💎</button>
+        <button id="paper">📄</button>
+        <button id="scissors">✂</button>
+      </div>
+
+      <h2 class="result winner"></h2>
+      <p class="scores winner"></p>
+    </div>
 
     <script src="script.js"></script>
   </body>
