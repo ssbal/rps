@@ -54,8 +54,8 @@ function game(playerChoice) {
   result.classList.remove('winner');
 
   let gameResult = playRound(playerSelection, computerSelection);
-  if (gameResult === null) return;
-  else if (gameResult === 'p') playerScore += 1;
+
+  if (gameResult === 'p') playerScore += 1;
   else if (gameResult === 'c') computerScore += 1;
 
   scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
@@ -65,6 +65,8 @@ function game(playerChoice) {
     playerScore = computerScore = 0;
     result.classList.add('winner');
   }
+
+  if (gameResult === null) return;
 }
 
 function getWinner(playerScore, computerScore) {
