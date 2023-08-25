@@ -1,10 +1,13 @@
 const buttons = document.querySelectorAll('button');
 const result = document.querySelector('.result');
+const scores = document.querySelector('.scores');
+let playerScore = 0,
+  computerScore = 0;
 
 buttons.forEach((button) => {
   button.addEventListener('click', (event) => {
     event.stopPropagation();
-    playRound(event.target.id, getComputerChoice());
+    game(event.target.id);
   });
 });
 
@@ -20,8 +23,8 @@ function playRound(playerSelection, computerSelection) {
   let winner;
 
   if (playerSelection === computerSelection) {
-    result.textContent = `It's a tie! Try again.`;
     winner = null;
+    result.textContent = `It's a tie! Try again.`;
   } else if (computerSelection === 'paper' && playerSelection === 'rock') {
     result.textContent = 'You Lose! Paper beats Rock.';
     winner = 'c';
@@ -45,33 +48,28 @@ function playRound(playerSelection, computerSelection) {
   return winner;
 }
 
-function game() {
-  let playerScore = 0,
-    computerScore = 0;
+function game(playerChoice) {
+  let playerSelection = playerChoice;
+  let computerSelection = getComputerChoice();
 
-  for (let i = 0; i < 5; i++) {
-    let playerSelection = prompt('Make a choice').trim().toLowerCase();
-    let computerSelection = getComputerChoice();
+  let result = playRound(playerSelection, computerSelection);
+  if (result === null) return;
+  else if (result === 'p') playerScore += 1;
+  else if (result === 'c') computerScore += 1;
 
-    let result = playRound(playerSelection, computerSelection);
-    if (result === null) continue;
-    else if (result === 'p') playerScore += 1;
-    else if (result === 'c') computerScore += 1;
-  }
+  scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
 
-  console.log(`Player: ${playerScore} | Computer: ${computerScore}`);
+  // let winner = getWinner(playerScore, computerScore);
 
-  let winner = getWinner(playerScore, computerScore);
-
-  console.log(winner);
+  // console.log(winner);
 }
 
-function getWinner(playerScore, computerScore) {
-  if (playerScore > computerScore) {
-    return 'You have won!';
-  } else if (playerScore < computerScore) {
-    return 'You have lost the game!';
-  } else if (playerScore === computerScore) {
-    return 'Game is draw!';
-  }
-}
+// function getWinner(playerScore, computerScore) {
+//   if (playerScore > computerScore) {
+//     return 'You have won!';
+//   } else if (playerScore < computerScore) {
+//     return 'You have lost the game!';
+//   } else if (playerScore === computerScore) {
+//     return 'Game is draw!';
+//   }
+// }
