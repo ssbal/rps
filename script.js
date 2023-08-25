@@ -1,3 +1,13 @@
+const buttons = document.querySelectorAll('button');
+const result = document.querySelector('.result');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', (event) => {
+    event.stopPropagation();
+    playRound(event.target.id, getComputerChoice());
+  });
+});
+
 function getComputerChoice() {
   let choice = parseInt(Math.random() * 3) + 1;
 
@@ -10,24 +20,25 @@ function playRound(playerSelection, computerSelection) {
   let winner;
 
   if (playerSelection === computerSelection) {
+    result.textContent = `It's a tie! Try again.`;
     winner = null;
   } else if (computerSelection === 'paper' && playerSelection === 'rock') {
-    console.log('You Lose! Paper beats Rock.');
+    result.textContent = 'You Lose! Paper beats Rock.';
     winner = 'c';
   } else if (playerSelection === 'paper' && computerSelection === 'rock') {
-    console.log('You Win! Paper beats Rock.');
+    result.textContent = 'You Win! Paper beats Rock.';
     winner = 'p';
   } else if (computerSelection === 'rock' && playerSelection === 'scissors') {
-    console.log('You Lose! Rock beats Scissors.');
+    result.textContent = 'You Lose! Rock beats Scissors.';
     winner = 'c';
   } else if (playerSelection === 'rock' && computerSelection === 'scissors') {
-    console.log('You Win! Rock beats Scissors.');
+    result.textContent = 'You Win! Rock beats Scissors.';
     winner = 'p';
   } else if (computerSelection === 'scissors' && playerSelection === 'paper') {
-    console.log('You Lose! Scissors beat Paper.');
+    result.textContent = 'You Lose! Scissors beat Paper.';
     winner = 'c';
   } else if (playerSelection === 'scissors' && computerSelection === 'paper') {
-    console.log('You Win! Scissors beat Paper.');
+    result.textContent = 'You Win! Scissors beat Paper.';
     winner = 'p';
   }
 
@@ -35,7 +46,8 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function game() {
-  let playerScore = 0, computerScore = 0;
+  let playerScore = 0,
+    computerScore = 0;
 
   for (let i = 0; i < 5; i++) {
     let playerSelection = prompt('Make a choice').trim().toLowerCase();
@@ -63,5 +75,3 @@ function getWinner(playerScore, computerScore) {
     return 'Game is draw!';
   }
 }
-
-game();
