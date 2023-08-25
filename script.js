@@ -59,17 +59,15 @@ function game(playerChoice) {
 
   scores.textContent = `Player: ${playerScore} | Computer: ${computerScore}`;
 
-  // let winner = getWinner(playerScore, computerScore);
-
-  // console.log(winner);
+  if (playerScore === 5 || computerScore === 5) {
+    getWinner(playerScore, computerScore);
+  }
 }
 
-// function getWinner(playerScore, computerScore) {
-//   if (playerScore > computerScore) {
-//     return 'You have won!';
-//   } else if (playerScore < computerScore) {
-//     return 'You have lost the game!';
-//   } else if (playerScore === computerScore) {
-//     return 'Game is draw!';
-//   }
-// }
+function getWinner(playerScore, computerScore) {
+  if (playerScore > computerScore) {
+    result.textContent = 'You have won!';
+  } else if (playerScore < computerScore) {
+    result.textContent = 'You have lost the game!';
+  }
+}
