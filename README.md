@@ -2,6 +2,10 @@
 
 Minimalistic rock-paper-scissors.
 
+## Live Preview 🐱‍👤
+
+[Click here](https://ssbal.github.io/rps) to see the application in action.
+
 ## Tech Stack
 
 - JavaScript
